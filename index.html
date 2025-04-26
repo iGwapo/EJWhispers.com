@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selamat Datang</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+    input {
+      padding: 12px;
+      font-size: 18px;
+      width: 250px;
+      border: none;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff758c;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #ff5e7c;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Masukkan Namamu</h1>
+<input type="text" id="nameInput" placeholder="Namamu...">
+<br>
+<button onclick="goToMenu()">Mulai</button>
+
+<script>
+  function goToMenu() {
+    const name = document.getElementById('nameInput').value.trim();
+    if (name) {
+      window.location.href = `menu.html?name=${encodeURIComponent(name)}`;
+    } else {
+      alert('Masukkan nama kamu terlebih dahulu..');
+    }
+  }
+</script>
+
+</body>
+</html>

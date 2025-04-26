@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegraph Links</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Efek Bintang */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      animation: animateStars 60s linear infinite;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    @keyframes animateStars {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin-top: 50px;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff5e7c;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    .telegraph-btn {
+      padding: 20px;
+      background-color: #ff758c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s;
+      text-align: center;
+    }
+
+    .telegraph-btn:hover {
+      background-color: #ff5e7c;
+      transform: translateY(-5px);
+    }
+
+    .telegraph-btn:active {
+      transform: translateY(2px);
+    }
+
+    #back-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f67280;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #back-btn:hover {
+      background-color: #c94f60;
+    }
+
+    @media (max-width: 768px) {
+      .button-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .button-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animasi untuk judul */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Efek Bintang -->
+<div class="stars"></div>
+
+<div class="container">
+  <h1>Our Love, Documented</h1>
+  <div class="button-container">
+    <!-- 20 Buttons -->
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/Dear-Mr-J-06-06')">Juni 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/i-love-u-idiot-07-12')">Juli 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/STILL-US-08-12')">Agustus 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/Has-been-three-months-09-12')">September 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/4ever-10-12-21')">Oktober 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/Can-i-show-my-love-for-you-11-12')">November 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/just-you-only-you-12-12')">Desember 2023</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/its-not-just-about-how-many-stars-weve-collected-but-04-12')">April 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/trimakasih-juan-trimakasih-untuk-setiap-detik-yang-kamu-berikan-buat-aku-05-12')">Mei 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/i-will-love-you-again-again-and-again-its-like-we-just-met-06-12')">Juni 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/13-07-13-8')">Juli 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/rate-08-05')">Agustus 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://instagram.com/mangknapasyi')">September 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/i-love-you-not-just-a-sentence-like-but-i-really-feel-it--and-the-day-of-rewrite-the-stars-ive-always-waited-for-10-12-2')">Oktober 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://drive.google.com/file/d/1yODGBjwS9j6pTP4h2lO_cI3imedLMVHY/view?usp=sharing')">November 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://drive.google.com/file/d/1cQl4atx1gvTCWg_y3nxJnFEWgup4fhxo/view?usp=sharing')">Desember 2024</button>
+    <button class="telegraph-btn" onclick="openLink('https://drive.google.com/file/d/1dPQSYwGSWZCR3eudP5FiT1g8Lq0DQ6TV/view?usp=sharing')">Januari 2025</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/Waiting-on-a-Miracle-02-12-2')">Februari 2025</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/Feelings-that-flow-like-blood-03-12-2')">Maret 2025</button>
+    <button class="telegraph-btn" onclick="openLink('https://telegra.ph/top-ten-top-high-04-13')">April 2025</button>
+  </div>
+
+  <button id="back-btn" onclick="goBack()">⬅ Kembali ke Menu</button>
+</div>
+
+<script>
+function openLink(url) {
+  if (url.includes('instagram.com') || url.endsWith('.pdf')) {
+    window.open(url, '_blank'); // Instagram dan PDF buka di tab baru
+  } else {
+    window.location.href = url; // Telegraph langsung buka di halaman ini
+  }
+}
+
+function goBack() {
+  window.location.href = 'menu.html'; // Kembali ke halaman menu
+}
+</script>
+
+</body>
+</html>
+/

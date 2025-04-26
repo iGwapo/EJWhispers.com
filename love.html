@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untukmu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #f7c1d5 0%, #f0e5d8 100%);
+      margin: 0;
+      padding: 0;
+      font-family: 'Pacifico', cursive;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      margin-top: 50px;
+      max-width: 800px;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff5e7c;
+      font-weight: 700;
+    }
+
+    .message-container {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.8);
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+      height: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .message-container p {
+      margin: 0;
+    }
+
+    .message-container:hover {
+      box-shadow: 0px 6px 30px rgba(0,0,0,0.3);
+    }
+
+    .falling {
+      position: fixed;
+      top: -50px;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #ff758c;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      z-index: 2;
+    }
+
+    .back-btn:hover {
+      background-color: #ff5e7c;
+      transform: scale(1.05);
+    }
+
+    .back-btn:active {
+      transform: scale(1);
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 10%; /* Ubah sesuai dengan posisi yang diinginkan */
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #7f56d9;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-btn.left {
+      left: 20px;
+    }
+
+    .arrow-btn.right {
+      right: 20px;
+    }
+
+    .arrow-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .intro-message {
+      font-family: 'Pacifico', cursive;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .message {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      text-align: left;
+    }
+
+    .message-number {
+      font-size: 1.2rem;
+      color: #ff5e7c;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container" id="top">
+  <h1 id="personalMessage"></h1>
+
+  <div class="message-container" id="message-container">
+    <button class="arrow-btn left" onclick="prevMessage()">←</button>
+    <div id="message-content">
+      <div id="message-number" class="message-number"></div>
+      <p id="message" class="intro-message">It’s strange how sometimes things just align, and you realize they were meant to happen. I didn’t see it coming, but here we are.</p>
+    </div>
+    <button class="arrow-btn right" id="nextButton" onclick="nextMessage()">→</button>
+  </div>
+
+  <button class="back-btn" onclick="goBack()">Back ➔</button>
+</div>
+
+<script>
+  // Mengubah judul menjadi "As Unscripted as It Gets"
+  document.getElementById('personalMessage').textContent = "As Unscripted as It Gets";
+
+  const messages = [
+    "It feels like only yesterday when we first found each other, three years ago, as two souls unknowingly crossing paths. Our love, like the most beautiful of stories, began quietly but fiercely, as though the universe itself had gently nudged us into one another’s lives. For six months, we shared our hearts, building memories and dreams, as though we had already known each other for a lifetime. But then, something happened. The stars we once gazed upon together dimmed for a while, and we put down our pens, thinking that the story had come to an end.",
+    "But life has a way of surprising us, doesn't it? On the ninth month, we found each other again. This time, our hearts were even more certain, our hands steadier as we picked up where we had left off. It was as if the universe had been waiting for us to come back, and so we did. Slowly at first, and then with the intensity that had always been there, we began writing again, this time with more understanding, more appreciation, and a sense of belonging that could not be taken away.",
+    "There’s always something, isn’t there? Every year, without fail, something or someone tries to stir the peace we’ve created. At first, those moments used to get to us. We questioned things, we got quiet, sometimes even distant. But over time, we learned to see it differently. Instead of letting it break us, we started laughing. Not because it wasn’t serious, but because we realized how much stronger we’ve become. Now, every time something tries to get in the way, we look at each other, shake our heads, and laugh because deep down, we know no one else really gets us like we do. Those interruptions became running jokes, small parts of our rhythm. And in those laughs, we found our way back to each other, again and again.",
+    "Maybe this is all I can say for now just like flowers that keep blooming with every season, like the Earth that never grows tired of circling the sun, and like the wind that always finds its way back to whisper through the trees. All of it reminds me of us how we keep going, how we stay, and how we always return to each other no matter what. I know life won’t always be easy, but I hope everything keeps unfolding gently, with grace, with care, and with love that doesn’t need to shout to be felt. So yeah, for now, I simply want to say I love you, sweetheart."
+  ];
+
+  let currentMessageIndex = 0;
+
+  function nextMessage() {
+    currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+    document.getElementById('message').textContent = messages[currentMessageIndex];
+    document.getElementById('message-number').textContent = `Slide ${currentMessageIndex + 1}`;
+    document.getElementById('message').classList.add('message');
+    document.getElementById('message-container').scrollTop = 0; // Scroll ke atas saat ganti pesan
+    toggleButtons();
+  }
+
+  function prevMessage() {
+    currentMessageIndex = (currentMessageIndex - 1 + messages.length) % messages.length;
+    document.getElementById('message').textContent = messages[currentMessageIndex];
+    document.getElementById('message-number').textContent = `Slide ${currentMessageIndex + 1}`;
+    document.getElementById('message').classList.add('message');
+    document.getElementById('message-container').scrollTop = 0;
+    toggleButtons();
+  }
+
+  function toggleButtons() {
+    const nextButton = document.getElementById('nextButton');
+    if (currentMessageIndex === messages.length - 1) {
+      nextButton.classList.add('hidden');
+    } else {
+      nextButton.classList.remove('hidden');
+    }
+  }
+
+  toggleButtons();
+
+  function createFlower() {
+    const flower = document.createElement('div');
+    flower.classList.add('falling');
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = 5 + Math.random() * 5 + "s";
+    flower.style.opacity = Math.random();
+    flower.style.fontSize = Math.random() * 24 + 16 + "px";
+    flower.innerHTML = "🌸";
+    document.body.appendChild(flower);
+    setTimeout(() => flower.remove(), 10000);
+  }
+  setInterval(createFlower, 300);
+
+  function goBack() {
+    window.location.href = 'menu.html';
+  }
+</script>
+
+</body>
+</html>

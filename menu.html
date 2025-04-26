@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu</title>
+  <style>
+    /* Reset default */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbd3e9, #bbd2c5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #6a0572;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 300px;
+      animation: fadeInUp 1.5s ease;
+    }
+    .menu-button {
+      padding: 15px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      color: #6a0572;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .menu-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      background: linear-gradient(to right, #f6d365, #fda085);
+    }
+    /* Responsive buat tablet/hp kecil */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .menu-button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+
+    /* Animasi */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="greeting">Halo!</h1>
+
+<div class="button-container">
+  <button class="menu-button" onclick="goToPage('love.html')">Message</button>
+  <button class="menu-button" onclick="goToPage('gallery.html')">Gallery</button>
+  <button class="menu-button" onclick="goToPage('telegraph.html')">Telegraph</button>
+</div>
+
+<script>
+  // Ambil nama dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name');
+
+  if (name) {
+    document.getElementById('greeting').textContent = `Halo, ${name}!`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?name=${encodeURIComponent(name)}`;
+  }
+</script>
+
+</body>
+</html>
